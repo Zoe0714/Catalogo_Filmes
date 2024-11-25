@@ -204,11 +204,12 @@
                                                                 // Função para recomendar filmes com base no genero 
                                                                 function recomendarFilmes (genero) { 
                                                                     const recomendacoes = document.getElementById('recomendacoes'); 
-                                                                    recomendacoes.innerHTML = '<h3>Filmes Recomendados:</h3>''; 
+                                                                    recomendacoes.innerHTML = '<h3>Filmes Recomendados:</h3>'; 
                                                                     
                                                                     const filmesRecomendados = catalogo.filter (filme => filme.genero.toLowerCase() === genero.toLowerCase() && filme.nome !== document.getElementById('nome').value); 
-                                                                    if (filmes Recomendados.length > 0) { filmes Recomendados.forEach(filme > { 
-                                                                        recomendacoes.innerHTML + formatarDetalhesFilme (filme); 
+                                                                    if (filmesRecomendados.length > 0) { 
+                                                                    filmesRecomendados.forEach(filme => { 
+                                                                        recomendacoes.innerHTML += formatarDetalhesFilme (filme); 
                                                                     }); 
                                                                  } else {
                                                                     recomendacoes.innerHTML += "<p>Nenhum filme recomendado encontrado.</p>"; 
@@ -219,8 +220,8 @@
                                                                         document.getElementById('nome').value = ''; 
                                                                         document.getElementById('classificacao').value = ''; 
                                                                         document.getElementById('duracao').value = ''; 
-                                                                        document.getElementById('genero').value = ""; 
-                                                                        document.getElementById('ano').value = '': 
+                                                                        document.getElementById('genero').value = ''; 
+                                                                        document.getElementById('ano').value = ''; 
                                                                         document.getElementById('sinopse').value = ''; 
                                                                         document.getElementById('btn-atualizar').style.display = 'none'; 
                                                                         filmeEditando = null;
@@ -238,7 +239,7 @@ filmeEditando = Index
 document.getElementById('btn-atualizar').style.display='inline';
 }
 
-// Tunção para atualizar un filme editaks
+// Função para atualizar un filme editado
 function atualizarFilme() {
 if (filmeEditando = null) {
 catalogo [filmeEditando] = {
@@ -254,3 +255,12 @@ limparCampos();
 listarFilmes();
 }
 }
+// Função para excluir um filme 
+function excluirFilme(index) { 
+    catalogo.splice(index, 1); 
+    alert("Filme excluído com sucesso!");
+    listarFilmes(); 
+} 
+</script> 
+</body> 
+</html>
